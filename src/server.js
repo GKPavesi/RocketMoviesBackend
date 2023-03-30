@@ -22,3 +22,7 @@ app.listen(PORT, () => {
 //bcrypt pra password
 //dar uma olhada em todas as libs que instalei no outro projeto
 //usar o path
+
+
+//ver todas as lib
+//entender bem como ta funcionando tudo, principalmente as rotas, nao ficar com duvida em nada
