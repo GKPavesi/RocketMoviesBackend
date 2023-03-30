@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./src/routes');
+const routes = require('./routes');
 
 const PORT = 3000;
 const app = express();
@@ -21,3 +21,4 @@ app.listen(PORT, () => {
 //express errors pra tratar os erros
 //bcrypt pra password
 //dar uma olhada em todas as libs que instalei no outro projeto
+//usar o path
