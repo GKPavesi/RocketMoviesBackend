@@ -1,8 +1,10 @@
 const knex = require('../database/knex');
+const AppError = require('../utils/AppError');
 
 class UsersController {
     async teste(request, response) {
-
+        throw new AppError("Mensagem personalizada de erro funcionando!!!!")
+        // throw new Error("just a test");
         const teste = [
         {
             "name": "Gui",
