@@ -54,3 +54,5 @@ app.listen(PORT, () => {
 
 ///fazer umas logicas pra password também e essas coisas, deixar bem completo
 
+
+//talvez melhorar e refatorar as logicas de tudo
