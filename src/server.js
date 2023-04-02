@@ -46,3 +46,11 @@ app.listen(PORT, () => {
 
 //ver todas as lib
 //entender bem como ta funcionando tudo, principalmente as rotas, nao ficar com duvida em nada
+
+
+
+///agora começar a logica de tudo no backend, a base ja está montada
+//fazer logica no insomnia tbm
+
+///fazer umas logicas pra password também e essas coisas, deixar bem completo
+
