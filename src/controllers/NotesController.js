@@ -86,6 +86,8 @@ class NotesController {
             "id": note_id,
         })
     }
+
+    //index e update
 }
 
 module.exports = NotesController;
