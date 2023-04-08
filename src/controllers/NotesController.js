@@ -6,6 +6,12 @@ class NotesController {
         const { title, description, rating, tags } = request.body;
         const { user_id } = request.params;
 
+        const user = await Knex("users").where({"id": user_id}).first();
+
+        if (!user) {
+            throw new AppError("Essa usuário não existe!")
+        }
+
         const missingFields = !title || !description || (!rating && rating !== 0) || !tags || tags.length == 0;
 
         if (missingFields) {
@@ -36,12 +42,48 @@ class NotesController {
         let tags_ids = await Knex("movie_tags").insert(tagsToInsert).returning("id");
 
         tags_ids = tags_ids.map(tag => tag.id);
-        
+
         return response.status(201).json({
             "status": "success",
             "message": "Nota criada com sucesso",
             "id": note_id[0],
             "tags_id": tags_ids 
+        })
+    }
+
+    async show(request, response) {
+        const { note_id } = request.params;
+
+        const note = await Knex("movie_notes").where({"id": note_id}).first();
+
+        if (!note) {
+            throw new AppError("Essa nota não existe!")
+        }
+
+        const tags = await Knex("movie_tags").where({ note_id }).orderBy("name");
+
+        return response.status(200).json({
+            ...note,
+            tags
+        })
+    }
+
+
+    async delete(request, response) {
+        const { note_id } = request.params;
+
+        const note = await Knex("movie_notes").where({"id": note_id}).first();
+
+        if (!note) {
+            throw new AppError("Essa nota não existe!")
+        }
+
+        await Knex("movie_notes").where({"id": note_id}).delete();
+
+        return response.status(200).json({
+            "status": "success",
+            "message": "Nota deletada com sucesso",
+            "id": note_id,
         })
     }
 }

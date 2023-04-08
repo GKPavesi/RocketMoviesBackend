@@ -57,3 +57,5 @@ app.listen(PORT, () => {
 
 //talvez melhorar e refatorar as logicas de tudo
 ///pensar bem nas validações de tudo, principalmente do user
+
+//verificar tudo, se ta tudo ok!
